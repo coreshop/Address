@@ -10,19 +10,17 @@
  * @license    https://www.coreshop.org/license     GNU General Public License version 3 (GPLv3)
  */
 
-declare(strict_types=1);
+namespace CoreShop\Component\Address\Model;
 
-namespace CoreShop\Component\Address\Repository;
-
-use CoreShop\Component\Address\Model\AddressIdentifierInterface;
-use CoreShop\Component\Resource\Repository\RepositoryInterface;
-
-interface AddressIdentifierRepositoryInterface extends RepositoryInterface
+interface DefaultAddressAwareInterface
 {
     /**
-     * @param string $name
-     *
-     * @return AddressIdentifierInterface
+     * @param AddressInterface $address
      */
-    public function findByName($name): ?AddressIdentifierInterface;
+    public function setDefaultAddress($address);
+
+    /**
+     * @return AddressInterface
+     */
+    public function getDefaultAddress();
 }
